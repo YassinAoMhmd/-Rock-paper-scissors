@@ -1,23 +1,25 @@
+let computerWins = 0;
+let playerWins = 0;
+
 let Brock = document.getElementById("rock");
-let Bpaper = document.getElementById("paper");
-let Bscissors = document.getElementById("scissors");
 
 Brock.addEventListener("click", () => {
     playRound("rock");
 });
 
+
+let Bpaper = document.getElementById("paper");
+
 Bpaper.addEventListener("click", () => {
     playRound("paper");
 });
 
+
+let Bscissors = document.getElementById("scissors");
+
 Bscissors.addEventListener("click", () => {
     playRound("scissors");
 });
-
-
-
-let computerWins = 0;
-let playerWins = 0;
 
 function playRound(playerChoice) {
 
@@ -26,22 +28,34 @@ function playRound(playerChoice) {
     winner = winnerGame(playerChoice, computerChoice);
 
     if (winner == playerChoice) {
-        alert("The player has chosen " + playerChoice);
+        /*alert("The player has chosen " + playerChoice);
         alert("The computer has chosen " + computerChoice);
-        alert("The player is the winner because the " + playerChoice + " wins to " + computerChoice);
+        */
+        result.innerHTML = "The player is the winner because the " + playerChoice + " wins to " + computerChoice;
+        //alert("The player is the winner because the " + playerChoice + " wins to " + computerChoice);
     } else if (winner == computerChoice) {
-        alert("The player has chosen " + playerChoice);
+        /*alert("The player has chosen " + playerChoice);
         alert("The computer has chosen " + computerChoice);
-        alert("The computer is the winner because the " + computerChoice + " wins to " + playerChoice);
+        */
+        //alert("The computer is the winner because the " + computerChoice + " wins to " + playerChoice);
     } else if (winner == 0) {
-        alert("The player has chosen " + playerChoice);
+        /*alert("The player has chosen " + playerChoice);
         alert("The computer has chosen " + computerChoice);
-        alert("There is no winner, you have reached a draw");
+        */
+        //alert("There is no winner, you have reached a draw");
     } else {
-        alert("You have not made any choice or your choice is incorrect");
+        //alert("You have not made any choice or your choice is incorrect");
     }
 
-    result();
+    if (computerWins == 5) {
+        alert("The computer reach 5 points");
+        computerWins = 0;
+        playerWins = 0;
+    } else if (playerWins == 5) {
+        alert("You reachs 5 points");
+        computerWins = 0;
+        playerWins = 0;
+    }
 }
 
 function getComputerChoice() {
@@ -88,14 +102,4 @@ function winnerGame(playerChoice, computerChoice) {
     }
 }
 
-function result() {
-    if (computerWins == 5) {
-        alert("The computer reach 5 points");
-        computerWins = 0;
-        playerWins = 0;
-    } else if (playerWins == 5) {
-        alert("You reachs 5 points");
-        computerWins = 0;
-        playerWins = 0;
-    }
-}
+let result = document.getElementById(winner);
