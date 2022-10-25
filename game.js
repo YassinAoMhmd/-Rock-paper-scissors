@@ -90,11 +90,11 @@ function winnerGame(playerChoice, computerChoice) {
 
 function result() {
     if (computerWins == 5) {
-        alert("5 rounds have been played and the computer is the winner");
+        alert("The computer reach 5 points");
         computerWins = 0;
         playerWins = 0;
     } else if (playerWins == 5) {
-        alert("5 rounds have been played and you are the winner");
+        alert("You reachs 5 points");
         computerWins = 0;
         playerWins = 0;
     }
