@@ -32,27 +32,24 @@ function playRound(playerChoice) {
         alert("The computer has chosen " + computerChoice);
         */
         result.innerHTML = "The player is the winner because the " + playerChoice + " wins to " + computerChoice;
-        //alert("The player is the winner because the " + playerChoice + " wins to " + computerChoice);
     } else if (winner == computerChoice) {
         /*alert("The player has chosen " + playerChoice);
         alert("The computer has chosen " + computerChoice);
         */
-        //alert("The computer is the winner because the " + computerChoice + " wins to " + playerChoice);
+        result.innerHTML = "The computer is the winner because the " + computerChoice + " wins to " + playerChoice;
     } else if (winner == 0) {
         /*alert("The player has chosen " + playerChoice);
         alert("The computer has chosen " + computerChoice);
         */
-        //alert("There is no winner, you have reached a draw");
-    } else {
-        //alert("You have not made any choice or your choice is incorrect");
+        result.innerHTML = "There is no winner, you have reached a draw";
     }
 
     if (computerWins == 5) {
-        alert("The computer reach 5 points");
+        game.innerHTML = "The computer reach 5 points";
         computerWins = 0;
         playerWins = 0;
     } else if (playerWins == 5) {
-        alert("You reachs 5 points");
+        game.innerHTML = "You reach 5 points";
         computerWins = 0;
         playerWins = 0;
     }
@@ -102,4 +99,5 @@ function winnerGame(playerChoice, computerChoice) {
     }
 }
 
-let result = document.getElementById(winner);
+let result = document.getElementById("winner");
+let game = document.getElementById("finalGame");
