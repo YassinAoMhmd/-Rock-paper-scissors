@@ -19,7 +19,7 @@ Bscissors.addEventListener("click", () => {
 let computerWins = 0;
 let playerWins = 0;
 
-function main(playerChoice) {
+function playRound(playerChoice) {
 
     let computerChoice = getComputerChoice();
 
@@ -41,9 +41,7 @@ function main(playerChoice) {
         alert("You have not made any choice or your choice is incorrect");
     }
 
-    if (rounds >= 5) {
-        result();
-    }
+    result();
 }
 
 function getComputerChoice() {
@@ -91,11 +89,13 @@ function winnerGame(playerChoice, computerChoice) {
 }
 
 function result() {
-    if (computerWins > playerWins) {
+    if (computerWins == 5) {
         alert("5 rounds have been played and the computer is the winner");
-    } else if (playerWins > computerWins) {
+        computerWins = 0;
+        playerWins = 0;
+    } else if (playerWins == 5) {
         alert("5 rounds have been played and you are the winner");
-    } else {
-        alert("5 rounds have been played and there is a draw");
+        computerWins = 0;
+        playerWins = 0;
     }
 }
