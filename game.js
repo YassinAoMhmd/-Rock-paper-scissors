@@ -27,31 +27,26 @@ function playRound(playerChoice) {
 
     winner = winnerGame(playerChoice, computerChoice);
 
+    choices.innerHTML = "The player has chosen " + playerChoice + ", The computer has chosen " + computerChoice;
+
     if (winner == playerChoice) {
-        /*alert("The player has chosen " + playerChoice);
-        alert("The computer has chosen " + computerChoice);
-        */
         result.innerHTML = "The player is the winner because the " + playerChoice + " wins to " + computerChoice;
     } else if (winner == computerChoice) {
-        /*alert("The player has chosen " + playerChoice);
-        alert("The computer has chosen " + computerChoice);
-        */
         result.innerHTML = "The computer is the winner because the " + computerChoice + " wins to " + playerChoice;
     } else if (winner == 0) {
-        /*alert("The player has chosen " + playerChoice);
-        alert("The computer has chosen " + computerChoice);
-        */
         result.innerHTML = "There is no winner, you have reached a draw";
     }
 
     if (computerWins == 5) {
-        game.innerHTML = "The computer reach 5 points";
+        game.innerHTML = "¡¡¡The computer win the game, Computer reach 5 points!!!";
         computerWins = 0;
         playerWins = 0;
     } else if (playerWins == 5) {
-        game.innerHTML = "You reach 5 points";
+        game.innerHTML = "¡¡¡You win the game, You reach 5 points!!!";
         computerWins = 0;
         playerWins = 0;
+    }else{
+        game.innerHTML="";
     }
 }
 
@@ -98,6 +93,6 @@ function winnerGame(playerChoice, computerChoice) {
         return computerChoice;
     }
 }
-
+let choices = document.getElementById("playerComputerChoice");
 let result = document.getElementById("winner");
 let game = document.getElementById("finalGame");
