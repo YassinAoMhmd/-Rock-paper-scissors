@@ -1,78 +1,101 @@
+let Brock = document.getElementById("rock");
+let Bpaper = document.getElementById("paper");
+let Bscissors = document.getElementById("scissors");
+
+Brock.addEventListener("click", () => {
+    main("rock");
+});
+
+Bpaper.addEventListener("click", () => {
+    main("paper");
+});
+
+Bscissors.addEventListener("click", () => {
+    main("scissors");
+});
+
+
+
 let computerWins = 0;
 let playerWins = 0;
 
-function main(playerChoice){
-    for (let step = 0; step < 5; step++) {
-        playerChoice = prompt("Enter your choice Rock, Paper, Scissors");
-        playerChoice = playerChoice.toLowerCase();
-        let computerChoice = getComputerChoice();
+function main(playerChoice) {
 
-        console.log("The player has chosen " + playerChoice);
-        console.log("The computer has chosen " + computerChoice);
+    let computerChoice = getComputerChoice();
 
-        winner = winnerGame(playerChoice, computerChoice);
+    winner = winnerGame(playerChoice, computerChoice);
 
-        if (winner == playerChoice) {
-            console.log("The player is the winner because the " + playerChoice + " wins to " + computerChoice);
-        } else if (winner == computerChoice) {
-            console.log("The computer is the winner because the " + computerChoice + " wins to " + playerChoice);
-        } else if (winner == 0) {
-            console.log("There is no winner, you have reached a draw");
-        } else {
-            console.log("You have not made any choice or your choice is incorrect");
-        }
+    if (winner == playerChoice) {
+        alert("The player has chosen " + playerChoice);
+        alert("The computer has chosen " + computerChoice);
+        alert("The player is the winner because the " + playerChoice + " wins to " + computerChoice);
+    } else if (winner == computerChoice) {
+        alert("The player has chosen " + playerChoice);
+        alert("The computer has chosen " + computerChoice);
+        alert("The computer is the winner because the " + computerChoice + " wins to " + playerChoice);
+    } else if (winner == 0) {
+        alert("The player has chosen " + playerChoice);
+        alert("The computer has chosen " + computerChoice);
+        alert("There is no winner, you have reached a draw");
+    } else {
+        alert("You have not made any choice or your choice is incorrect");
+    }
+
+    if (rounds >= 5) {
+        result();
     }
 }
-function getComputerChoice(){
-    var x = Math.floor(Math.random()*3);
 
-    if(x==0){
+function getComputerChoice() {
+    var x = Math.floor(Math.random() * 3);
+
+    if (x == 0) {
         return "rock";
-    }else if(x==1){
+    } else if (x == 1) {
         return "paper";
-    }else if(x==2){
+    } else if (x == 2) {
         return "scissors";
     }
 }
 
-function checkPlayerChoice(finalChoice){
-    if (finalChoice == "rock" || finalChoice == "paper" || finalChoice == "scissors"){
+function checkPlayerChoice(finalChoice) {
+    if (finalChoice == "rock" || finalChoice == "paper" || finalChoice == "scissors") {
         return 0;
-    }else{
+    } else {
         return -1;
     }
 }
 
-function winnerGame(playerChoice,computerChoice){
+function winnerGame(playerChoice, computerChoice) {
     let checker = checkPlayerChoice(playerChoice);
 
-    if(checker == -1){
+    if (checker == -1) {
         return -1;
     }
-    
-    if(playerChoice == computerChoice){
+
+    if (playerChoice == computerChoice) {
         return 0;
-    }else if(playerChoice=="rock" & computerChoice=="scissors" ){
+    } else if (playerChoice == "rock" & computerChoice == "scissors") {
         playerWins++;
         return playerChoice;
-    }else if(playerChoice=="paper" & computerChoice=="rock"){
+    } else if (playerChoice == "paper" & computerChoice == "rock") {
         playerWins++;
         return playerChoice;
-    }else if(playerChoice=="scissors" & computerChoice=="paper"){
+    } else if (playerChoice == "scissors" & computerChoice == "paper") {
         playerWins++;
         return playerChoice;
-    }else {
+    } else {
         computerWins++;
         return computerChoice;
     }
 }
 
-function result(){
-    if(computerWins > playerWins){
-        console.log("The computer is the winner");
-    }else if (playerWins > computerWins){
-        console.log("You are the winner");
-    }else{
-        console.log("There is a draw");
+function result() {
+    if (computerWins > playerWins) {
+        alert("5 rounds have been played and the computer is the winner");
+    } else if (playerWins > computerWins) {
+        alert("5 rounds have been played and you are the winner");
+    } else {
+        alert("5 rounds have been played and there is a draw");
     }
 }
