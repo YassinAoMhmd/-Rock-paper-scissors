@@ -3,15 +3,15 @@ let Bpaper = document.getElementById("paper");
 let Bscissors = document.getElementById("scissors");
 
 Brock.addEventListener("click", () => {
-    main("rock");
+    playRound("rock");
 });
 
 Bpaper.addEventListener("click", () => {
-    main("paper");
+    playRound("paper");
 });
 
 Bscissors.addEventListener("click", () => {
-    main("scissors");
+    playRound("scissors");
 });
 
 
